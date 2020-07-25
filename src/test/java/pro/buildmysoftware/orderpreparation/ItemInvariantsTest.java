@@ -18,9 +18,8 @@ class ItemInvariantsTest {
 	@Test
 	void cannotAddItemsWithNegativeValues() throws Exception {
 		// when
-		var exception =
-				catchThrowableOfType(() -> itemOfPrice(TestFixtures
-						.usd(-1)), ItemPriceCannotBeNegativeException.class);
+		var exception = catchThrowableOfType(() -> itemOfPrice(TestFixtures.usd(-1)),
+				ItemPriceCannotBeNegativeException.class);
 
 		// then
 		assertThat(exception).isNotNull();

@@ -9,8 +9,7 @@ public class InvoiceCreator implements DomainService {
     private final OrderDao orderDao;
     private final TaxingPolicies taxingPolicies;
 
-    public InvoiceCreator(OrderDao orderDao,
-                          TaxingPolicies taxingPolicies) {
+    public InvoiceCreator(OrderDao orderDao, TaxingPolicies taxingPolicies) {
         this.orderDao = orderDao;
         this.taxingPolicies = taxingPolicies;
     }
@@ -18,8 +17,7 @@ public class InvoiceCreator implements DomainService {
     public Invoice invoiceFor(OrderId orderId, Client client) {
         return orderDao.orderBy(orderId)
                 .map(placedOrder -> new Invoice(placedOrder.totalCost()
-                        .multipliedBy(chooseTaxValueFor(client),
-                                RoundingMode.HALF_UP)))
+                        .multipliedBy(chooseTaxValueFor(client), RoundingMode.HALF_UP)))
                 .orElseThrow(() -> new CannotPrepareInvoiceForNonPlacedOrder("Order is not placed, so we cannot prepare an invoice for it"));
     }
 

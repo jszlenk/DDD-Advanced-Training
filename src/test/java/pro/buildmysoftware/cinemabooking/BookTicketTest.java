@@ -13,8 +13,7 @@ class BookTicketTest {
 	)
 	//@formatter:on
 	@Test
-	// TODO: the initial idea might produce too big aggregate, stick to
-	//  the rules (see javadocs in Cinema)
+	// TODO: the initial idea might produce too big aggregate, stick to the rules (see javadocs in Cinema)
 	void bookTicket() throws Exception {
 		// given
 		var cinema = emptyCinema();

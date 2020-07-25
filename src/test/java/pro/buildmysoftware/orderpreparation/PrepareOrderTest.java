@@ -64,10 +64,8 @@ class PrepareOrderTest {
 
 		// when
 		order.add(itemOfPrice(usd(20)));
-		var exceptionWhenAddingLastItem =
-				catchThrowableOfType(() -> order
-								.add(itemOfPrice(usd(81))),
-						MaxTotalCostExceededException.class);
+		var exceptionWhenAddingLastItem = catchThrowableOfType(() -> order.add(itemOfPrice(usd(81))),
+				MaxTotalCostExceededException.class);
 
 		// then
 		assertThat(exceptionWhenAddingLastItem).isNotNull()

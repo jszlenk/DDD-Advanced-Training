@@ -26,8 +26,7 @@ class PrepareInvoiceForClientTest {
 		var orderId = nonExistentOrder();
 
 		// when
-		var exception = catchThrowableOfType(() -> invoiceCreator
-						.invoiceFor(orderId, anyClient()),
+		var exception = catchThrowableOfType(() -> invoiceCreator.invoiceFor(orderId, anyClient()),
 				CannotPrepareInvoiceForNonPlacedOrder.class);
 
 		// then
