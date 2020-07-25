@@ -13,9 +13,7 @@ import static org.assertj.core.api.Assertions.catchThrowableOfType;
 class PrepareOrderTest {
 
 	// @formatter:off
-	@DisplayName(
-			"can prepare order"
-	)
+	@DisplayName("can prepare order")
 	//@formatter:on
 	@Test
 	void prepareOrder() throws Exception {
@@ -29,8 +27,8 @@ class PrepareOrderTest {
 	// @formatter:off
 	@DisplayName(
 			"given max $100 order total cost, " +
-					"when add item of value $20 to the order, " +
-					"then item is successfully added to the order"
+			"when add item of value $20 to the order, " +
+			"then item is successfully added to the order"
 	)
 	//@formatter:on
 	@Test
@@ -53,8 +51,8 @@ class PrepareOrderTest {
 	// @formatter:off
 	@DisplayName(
 			"given order with max total cost $100, " +
-					"when add item of price $20 and then another item of price $81, " +
-					"then the last item cannot be added"
+			"when add item of price $20 and then another item of price $81, " +
+			"then the last item cannot be added"
 	)
 	//@formatter:on
 	@Test

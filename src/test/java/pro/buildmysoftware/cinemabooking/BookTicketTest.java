@@ -8,9 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BookTicketTest {
 
 	// @formatter:off
-	@DisplayName(
-			"can book a ticket in cinema"
-	)
+	@DisplayName("can book a ticket in cinema")
 	//@formatter:on
 	@Test
 	// TODO: the initial idea might produce too big aggregate, stick to the rules (see javadocs in Cinema)

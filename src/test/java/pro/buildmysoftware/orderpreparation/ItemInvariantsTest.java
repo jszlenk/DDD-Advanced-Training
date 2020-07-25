@@ -11,9 +11,7 @@ import static pro.buildmysoftware.orderpreparation.TestFixtures.itemOfPrice;
 class ItemInvariantsTest {
 
 	// @formatter:off
-	@DisplayName(
-			"cannot add items with negative values"
-	)
+	@DisplayName("cannot add items with negative values")
 	//@formatter:on
 	@Test
 	void cannotAddItemsWithNegativeValues() throws Exception {

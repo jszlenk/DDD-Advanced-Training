@@ -15,9 +15,7 @@ import static pro.buildmysoftware.orderpreparation.TestFixtures.usd;
 class PrepareInvoiceForClientTest {
 
 	// @formatter:off
-	@DisplayName(
-			"cannot prepare invoice for non-existent order"
-	)
+	@DisplayName("cannot prepare invoice for non-existent order")
 	//@formatter:on
 	@Test
 	void prepareInvoice() throws Exception {
@@ -36,8 +34,8 @@ class PrepareInvoiceForClientTest {
 	// @formatter:off
 	@DisplayName(
 			"given placed order with total cost of 100 PLN, " +
-					"when prepare invoice for client from Poland, " +
-					"then gross value on invoice is 123 PLN"
+			"when prepare invoice for client from Poland, " +
+			"then gross value on invoice is 123 PLN"
 	)
 	//@formatter:on
 	@Test
@@ -60,8 +58,8 @@ class PrepareInvoiceForClientTest {
 	// @formatter:off
 	@DisplayName(
 			"given placed order with total cost of 100 USD, " +
-					"when prepare invoice for client from US, " +
-					"then gross value on invoice is 100 USD"
+			"when prepare invoice for client from US, " +
+			"then gross value on invoice is 100 USD"
 	)
 	//@formatter:on
 	@Test
