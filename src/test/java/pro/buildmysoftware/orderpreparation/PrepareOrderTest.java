@@ -25,12 +25,9 @@ class PrepareOrderTest {
 	}
 
 	// @formatter:off
-	@DisplayName(
-			"given max $100 order total cost, " +
+	@DisplayName("given max $100 order total cost, " +
 			"when add item of value $20 to the order, " +
-			"then item is successfully added to the order"
-	)
-	//@formatter:on
+			"then item is successfully added to the order")
 	@Test
 	void addElementSuccessfully() throws Exception {
 		// given
@@ -48,13 +45,9 @@ class PrepareOrderTest {
 		assertThat(order.totalCost()).isEqualTo(usd(20));
 	}
 
-	// @formatter:off
-	@DisplayName(
-			"given order with max total cost $100, " +
+	@DisplayName("given order with max total cost $100, " +
 			"when add item of price $20 and then another item of price $81, " +
-			"then the last item cannot be added"
-	)
-	//@formatter:on
+			"then the last item cannot be added")
 	@Test
 	void addItemUnsuccessful() throws Exception {
 		// given

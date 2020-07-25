@@ -14,9 +14,7 @@ import static pro.buildmysoftware.orderpreparation.TestFixtures.usd;
 
 class PrepareInvoiceForClientTest {
 
-	// @formatter:off
 	@DisplayName("cannot prepare invoice for non-existent order")
-	//@formatter:on
 	@Test
 	void prepareInvoice() throws Exception {
 		// given
@@ -31,13 +29,9 @@ class PrepareInvoiceForClientTest {
 		assertThat(exception).isNotNull();
 	}
 
-	// @formatter:off
-	@DisplayName(
-			"given placed order with total cost of 100 PLN, " +
+	@DisplayName("given placed order with total cost of 100 PLN, " +
 			"when prepare invoice for client from Poland, " +
-			"then gross value on invoice is 123 PLN"
-	)
-	//@formatter:on
+			"then gross value on invoice is 123 PLN")
 	@Test
 	void prepareInvoiceForClientFromPoland() throws Exception {
 		// given
@@ -55,13 +49,9 @@ class PrepareInvoiceForClientTest {
 		assertThat(invoice.gross()).isEqualTo(pln(123));
 	}
 
-	// @formatter:off
-	@DisplayName(
-			"given placed order with total cost of 100 USD, " +
+	@DisplayName("given placed order with total cost of 100 USD, " +
 			"when prepare invoice for client from US, " +
-			"then gross value on invoice is 100 USD"
-	)
-	//@formatter:on
+			"then gross value on invoice is 100 USD")
 	@Test
 	void prepareInvoiceForClientFromUS() throws Exception {
 		// given
@@ -96,9 +86,7 @@ class PrepareInvoiceForClientTest {
 	}
 
 	private InvoiceCreator invoiceCreator() {
-		return new InvoiceCreator(new InMemoryOrderDao(),
-				new TaxingPolicies(Set
-						.of(new PolandTaxPolicy())));
+		return new InvoiceCreator(new InMemoryOrderDao(), new TaxingPolicies(Set.of(new PolandTaxPolicy())));
 	}
 
 	private Money pln(double amount) {
@@ -118,7 +106,6 @@ class PrepareInvoiceForClientTest {
 	}
 
 	private InvoiceCreator invoiceCreator(OrderDao orderDao) {
-		return new InvoiceCreator(orderDao, new TaxingPolicies(Set
-				.of(new PolandTaxPolicy())));
+		return new InvoiceCreator(orderDao, new TaxingPolicies(Set.of(new PolandTaxPolicy())));
 	}
 }
