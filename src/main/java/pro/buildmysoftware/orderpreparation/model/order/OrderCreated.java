@@ -6,6 +6,5 @@ import pro.buildmysoftware.common.domain.DomainEvent;
 
 @Value
 public class OrderCreated implements DomainEvent {
-
     @NonNull OrderId id;
 }

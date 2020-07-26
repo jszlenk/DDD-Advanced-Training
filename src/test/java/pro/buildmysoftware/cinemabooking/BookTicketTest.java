@@ -16,10 +16,8 @@ class BookTicketTest {
 		var firstSeat = seat();
 		var secondSeat = seat();
 		var row = row();
-
 		// when
 		var event = cinema.book(row, firstSeat, secondSeat);
-
 		// then
 		assertThat(event).isNotNull();
 	}

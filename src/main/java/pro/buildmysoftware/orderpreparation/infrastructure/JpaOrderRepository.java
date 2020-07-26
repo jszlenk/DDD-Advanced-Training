@@ -9,7 +9,11 @@ import java.util.Optional;
 
 public class JpaOrderRepository implements OrderRepository {
 
-    private SpringJpaOrderRepository jpaOrderRepository;
+    private final SpringJpaOrderRepository jpaOrderRepository;
+
+    public JpaOrderRepository(SpringJpaOrderRepository jpaOrderRepository) {
+        this.jpaOrderRepository = jpaOrderRepository;
+    }
 
     @Override
     public Optional<Order> findBy(OrderId orderId) {

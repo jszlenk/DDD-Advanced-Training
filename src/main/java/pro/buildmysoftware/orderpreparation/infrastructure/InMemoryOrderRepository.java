@@ -15,6 +15,5 @@ public class InMemoryOrderRepository implements OrderRepository {
 
     @Override
     public void save(Order aggregate) {
-
     }
 }

@@ -23,17 +23,15 @@ public class Order implements AggregateRoot<OrderId> {
         id = new OrderId(UUID.randomUUID().toString());
     }
 
-    public static Order create(@NonNull Money maxTotalCost,
-                               OrderSpecification specification) throws MaxTotalCostCannotBeNegativeException {
+    public static Order create(@NonNull Money maxTotalCost, OrderSpecification specification) throws MaxTotalCostCannotBeNegativeException {
         if (maxTotalCost.isNegative()) {
-            throw new MaxTotalCostExceededException("Max total " + "cost cannot be negative");
+            throw new MaxTotalCostExceededException("Max total cost cannot be negative");
         }
         return new Order(maxTotalCost);
     }
 
     public OrderPlaced place() {
-        throw new UnsupportedOperationException("Implement this " +
-                "method");
+        throw new UnsupportedOperationException("Implement this method");
     }
 
     /**
@@ -48,19 +46,14 @@ public class Order implements AggregateRoot<OrderId> {
     public ItemAdded add(@NonNull Item item) throws MaxTotalCostExceededException {
         var newTotalCost = totalCost().plus(item.getPrice());
         if (newTotalCost.isGreaterThan(maxTotalCost)) {
-            throw new MaxTotalCostExceededException(String
-                    .format("Max total cost exceeded: %s",
-                            newTotalCost
-                                    .getAmount().doubleValue()));
+            throw new MaxTotalCostExceededException(String.format("Max total cost exceeded: %s", newTotalCost.getAmount().doubleValue()));
         }
         items.add(item);
-        return new ItemAdded(id, item, List.copyOf(items),
-                totalCost());
+        return new ItemAdded(id, item, List.copyOf(items), totalCost());
     }
 
     public Money totalCost() {
-        return items.stream().map(Item::getPrice).reduce(Money::plus)
-                .orElse(Money.zero(CurrencyUnit.USD));
+        return items.stream().map(Item::getPrice).reduce(Money::plus).orElse(Money.zero(CurrencyUnit.USD));
     }
 
     @Override

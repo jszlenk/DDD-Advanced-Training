@@ -18,7 +18,6 @@ public class Cinema implements AggregateRoot<CinemaId> {
     private Version version;
 
     public BookingConfirmed book(RowId row, SeatId... seats) {
-
         return null;
     }
 

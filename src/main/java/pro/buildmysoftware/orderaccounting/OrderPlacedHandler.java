@@ -15,7 +15,6 @@ public class OrderPlacedHandler {
     }
 
     private Order translateToOrder() {
-        throw new UnsupportedOperationException("implement " +
-                "translation");
+        throw new UnsupportedOperationException("implement translation");
     }
 }

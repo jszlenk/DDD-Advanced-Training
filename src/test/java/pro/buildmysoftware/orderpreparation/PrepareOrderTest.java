@@ -17,7 +17,6 @@ class PrepareOrderTest {
     void prepareOrder() throws Exception {
         // when
         Order order = orderWithMaxTotalCost(usd(100));
-
         // then
         assertThat(order).isNotNull();
     }
@@ -30,10 +29,8 @@ class PrepareOrderTest {
         // given
         var order = orderWithMaxTotalCost(usd(100));
         var item = itemOfPrice(usd(20));
-
         // when
         var event = order.add(item);
-
         // then
         assertThat(event.getAllItems()).containsOnly(item);
         assertThat(event.getItem()).isEqualTo(item);
@@ -49,15 +46,11 @@ class PrepareOrderTest {
     void addItemUnsuccessful() throws Exception {
         // given
         var order = orderWithMaxTotalCost(usd(100));
-
         // when
         order.add(itemOfPrice(usd(20)));
-        var exceptionWhenAddingLastItem = catchThrowableOfType(() -> order.add(itemOfPrice(usd(81))),
-                MaxTotalCostExceededException.class);
-
+        var exceptionWhenAddingLastItem = catchThrowableOfType(() -> order.add(itemOfPrice(usd(81))), MaxTotalCostExceededException.class);
         // then
-        assertThat(exceptionWhenAddingLastItem).isNotNull()
-                .hasMessage("Max total cost exceeded: 101.0");
+        assertThat(exceptionWhenAddingLastItem).isNotNull().hasMessage("Max total cost exceeded: 101.0");
     }
 
     private Order orderWithMaxTotalCost(Money usd) {

@@ -9,5 +9,4 @@ class DddAdvancedApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

@@ -16,14 +16,12 @@ public class InvoiceCreator implements DomainService {
 
     public Invoice invoiceFor(OrderId orderId, Client client) {
         return orderDao.orderBy(orderId)
-                .map(placedOrder -> new Invoice(placedOrder.totalCost()
-                        .multipliedBy(chooseTaxValueFor(client), RoundingMode.HALF_UP)))
+                .map(placedOrder -> new Invoice(placedOrder.totalCost().multipliedBy(chooseTaxValueFor(client), RoundingMode.HALF_UP)))
                 .orElseThrow(() -> new CannotPrepareInvoiceForNonPlacedOrder("Order is not placed, so we cannot prepare an invoice for it"));
     }
 
     private double chooseTaxValueFor(Client client) {
         return taxingPolicies.applicableTaxes(client).getTaxes()
-                .stream().mapToDouble(Tax::getTaxAsPercentage).max()
-                .orElse(1.00);
+                .stream().mapToDouble(Tax::getTaxAsPercentage).max().orElse(1.00);
     }
 }

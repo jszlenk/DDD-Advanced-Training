@@ -6,8 +6,7 @@ public class ItemPriceCannotBeNegativeException extends RuntimeException {
         super(message);
     }
 
-    public ItemPriceCannotBeNegativeException(String message,
-                                              Throwable cause) {
+    public ItemPriceCannotBeNegativeException(String message, Throwable cause) {
         super(message, cause);
     }
 }

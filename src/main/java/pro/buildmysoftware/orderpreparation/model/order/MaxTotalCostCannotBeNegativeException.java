@@ -6,8 +6,7 @@ public class MaxTotalCostCannotBeNegativeException extends RuntimeException {
         super(message);
     }
 
-    public MaxTotalCostCannotBeNegativeException(String message,
-                                                 Throwable cause) {
+    public MaxTotalCostCannotBeNegativeException(String message, Throwable cause) {
         super(message, cause);
     }
 }

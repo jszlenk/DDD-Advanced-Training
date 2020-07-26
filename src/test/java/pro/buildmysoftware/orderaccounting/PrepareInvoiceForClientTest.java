@@ -20,11 +20,8 @@ class PrepareInvoiceForClientTest {
 		// given
 		var invoiceCreator = invoiceCreator();
 		var orderId = nonExistentOrder();
-
 		// when
-		var exception = catchThrowableOfType(() -> invoiceCreator.invoiceFor(orderId, anyClient()),
-				CannotPrepareInvoiceForNonPlacedOrder.class);
-
+		var exception = catchThrowableOfType(() -> invoiceCreator.invoiceFor(orderId, anyClient()), CannotPrepareInvoiceForNonPlacedOrder.class);
 		// then
 		assertThat(exception).isNotNull();
 	}
@@ -41,10 +38,8 @@ class PrepareInvoiceForClientTest {
 		var invoiceCreator = invoiceCreator(placedOrders);
 		var orderId = placedOrder.id();
 		var client = clientFromPoland();
-
 		// when
 		var invoice = invoiceCreator.invoiceFor(orderId, client);
-
 		// then
 		assertThat(invoice.gross()).isEqualTo(pln(123));
 	}
@@ -61,10 +56,8 @@ class PrepareInvoiceForClientTest {
 		var invoiceCreator = invoiceCreator(placedOrders);
 		var orderId = placedOrder.id();
 		var client = clientFromUS();
-
 		// when
 		var invoice = invoiceCreator.invoiceFor(orderId, client);
-
 		// then
 		assertThat(invoice.gross()).isEqualTo(usd(100));
 	}

@@ -9,7 +9,6 @@ import java.util.Collection;
 
 @Value
 public class ItemAdded implements DomainEvent {
-
     @NonNull OrderId order;
     @NonNull Item item;
     @NonNull Collection<Item> allItems;

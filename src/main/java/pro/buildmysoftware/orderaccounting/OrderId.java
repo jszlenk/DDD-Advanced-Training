@@ -5,6 +5,5 @@ import lombok.Value;
 
 @Value
 public class OrderId {
-
     @NonNull String value;
 }
