@@ -39,9 +39,7 @@ public class Order implements AggregateRoot<OrderId> {
      *
      * @param item
      * @return
-     * @throws MaxTotalCostExceededException if business invariant
-     *                                       regarding max total cost is
-     *                                       violated
+     * @throws MaxTotalCostExceededException if business invariant regarding max total cost is violated
      */
     public ItemAdded add(@NonNull Item item) throws MaxTotalCostExceededException {
         var newTotalCost = totalCost().plus(item.getPrice());
